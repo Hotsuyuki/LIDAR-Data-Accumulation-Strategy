@@ -21,25 +21,18 @@ Transition from Vehicle coordinate ---> to Absolute (World) coordinate
 
 ![](./images/onemapframegeneration2.png){ height=80% width=80% }\
 
-**Q: Is the max value of the Image domain (`U` and `V`) 512[pix]?**
-
 The equation of each pixel's intensity level $I_{eq}(u,v)$ in same position is;
 
 $$
 I_{eq}(u,v) =
 \frac
-{I_{new}(u,v) * N(u,v) + I_{old}(u,v)}
-{N(u,v) + 1}
+{I_{new}(u,v) + I_{old}(u,v) * N(u,v)}
+{1 + N(u,v)}
 $$
 
 ![](./images/onemapframegeneration3.png){ height=120% width=120% }\
 
-It weights every new value $I_{new}(u,v)$ by the number of irradiations $N(u,v)$, which means considering new value $I_{new}(u,v)$ is more trustful than old value $I_{old}(u,v)$. If the equation took the average of the intensity levels, the final value $I_{eq}(u,v)$ would be `20.2` (not `20.333`).
-
-**Q: What does "the defference between the pixel values" mean?**
->"An intuitive solution is to calculate the averaged intensity value based on the number of irradiations $N(u,v)$. This solution doesn't take into account *the difference between the pixel values*."
-
-**Q: What does $_{eq}$ mean in $I_{eq}(u,v)$? $_{equal}$?**
+It weights old value $I_{old}(u,v)$ by the number of irradiations $N(u,v)$, which means considering old value $I_{old}(u,v)$ is more trustful than new value $I_{new}(u,v)$. If the equation took the average of the intensity levels, the final value $I_{eq}(u,v)$ would be `20.2` (not `20.083`).
 
 ## 3. MULTIPLE FRAMES ACCUMULATION
 
