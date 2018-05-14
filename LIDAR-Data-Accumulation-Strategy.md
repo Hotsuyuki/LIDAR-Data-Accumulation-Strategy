@@ -83,7 +83,7 @@ C_{LTH,t}(y) = ceil(
 )
 $$
 $$
-C_{RBH,t}(x) = floor(¥
+C_{RBH,t}(x) = floor(
   \frac
   {C_{LT,t}(x) + Rse * w_a}
   {SS_w}
