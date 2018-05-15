@@ -1,4 +1,4 @@
-# LIDAR-Data Accumulation Strategy
+# LIDAR-Data Accumulation Strategy to generate high definition maps for autonomous vehicles
 
 ---
 
@@ -15,11 +15,11 @@
 
 Transition from Lider coordinate ---> to Vehicle coordinate
 
-![](./images/onemapframegeneration1.png){ height=80% width=80% }\
+![](./images/onemapframegeneration1.png){ height=75% width=75% }\
 
 Transition from Vehicle coordinate ---> to Absolute (World) coordinate
 
-![](./images/onemapframegeneration2.png){ height=80% width=80% }\
+![](./images/onemapframegeneration2.png){ height=75% width=75% }\
 
 The equation of each pixel's intensity level $I_{eq}(u,v)$ in same position is;
 
@@ -137,4 +137,8 @@ Then, the large map images is cut equally around the vehicle position $X_{t,DR}$
 
 LIDAR frames and vehicle (irradiation frames as well) are saved and stacked during the last $n$ frames. The current accumulated LIDAR image ($f$ = $1$ ~ $n$) can be obtained as a combination of the current LIDAR *frame* ($f$ = $1$) and previously *accumulated image* ($f$ = $2$ ~ $n-1$) after removing the pixels of the last frame ($f$ = $n$) in the stack.
 
-![](./images/localizationbasedonthegeneratedmap2.png)\
+![](./images/localizationbasedonthegeneratedmap2.png){ height=80% width=80% }\
+
+## REFERENCE
+
+* [M. Aldibaja, N. Suganuma, and K. Yoneda, "LIDAR-data accumulation strategy to generate high definition maps for autonomous vehicles", *IEEE*](https://ieeexplore.ieee.org/document/8170357/)
